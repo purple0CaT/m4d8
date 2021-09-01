@@ -14,7 +14,7 @@ class Gallerie extends React.Component {
   }
   render() {
     return (
-      <>
+      <div className="p-3">
         <div className="genre-details bg-black py-3">
           <div className="d-flex justify-content-center">
             <h2 className="text-light m-0">TV Shows</h2>
@@ -68,7 +68,7 @@ class Gallerie extends React.Component {
             <GallerieRow search="Hobbit" />
           </>
         )}
-      </>
+      </div>
     );
   }
 }
