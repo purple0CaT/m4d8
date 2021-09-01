@@ -4,9 +4,14 @@ import React from "react";
 
 class Gallerie extends React.Component {
   state = {
-    search: this.props.sendSearch? this.props.sendSearch : '',
+    search: this.props.searchVal,
   };
-
+  componentDidUpdate(prev, prevArr) {
+    if (prev.searchVal !== this.props.searchVal) {
+      this.setState({ search: this.props.searchVal });
+      console.log(this.state.search);
+    }
+  }
   render() {
     return (
       <>
@@ -18,9 +23,9 @@ class Gallerie extends React.Component {
               title="Genres"
               className="ml-3 dropdownMenu"
             >
-              <Dropdown.Item >Action</Dropdown.Item>
-              <Dropdown.Item >Drama</Dropdown.Item>
-              <Dropdown.Item >Horror</Dropdown.Item>
+              <Dropdown.Item>Action</Dropdown.Item>
+              <Dropdown.Item>Drama</Dropdown.Item>
+              <Dropdown.Item>Horror</Dropdown.Item>
             </DropdownButton>
           </div>
           <div className="btn-group" role="group" aria-label="First group">
@@ -52,7 +57,7 @@ class Gallerie extends React.Component {
         </div>
 
         {/* GALLERIE ROWS */}
-        {this.state.search.length > 1 ? (
+        {this.state.search ? (
           <>
             <GallerieRow search={this.state.search} />
           </>

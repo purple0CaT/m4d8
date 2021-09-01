@@ -16,11 +16,11 @@ class Comments extends React.Component {
     movie: [],
     success: false,
     newCom: {
-    author: "",
-    comment: "",
-    rate: 1,
-    elementId: this.props.movId,
-    }
+      author: "",
+      comment: "",
+      rate: 1,
+      elementId: this.props.movId,
+    },
   };
   hideCom = (event) => {
     this.props.parentCallback(false);
@@ -59,9 +59,7 @@ class Comments extends React.Component {
       console.log(e);
     }
   }
-  loadIt = async ()=> {
-      
-  }
+  loadIt = async () => {};
   // setting up value
   setUp(e, name) {
     this.setState({
@@ -72,9 +70,9 @@ class Comments extends React.Component {
     });
   }
   //   Sending Coments
-   sendComment = async (e) => {
-    e.preventDefault()
-    console.log(this.state.newCom)
+  sendComment = async (e) => {
+    e.preventDefault();
+    console.log(this.state.newCom);
 
     const response = await fetch(
       "https://striveschool-api.herokuapp.com/api/comments/",
@@ -83,42 +81,43 @@ class Comments extends React.Component {
         body: JSON.stringify(this.state.newCom),
         headers: {
           "Content-type": "application/json",
-          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFjZjcwZDJkNTI2MjAwMTViNmRjOTkiLCJpYXQiOjE2Mjk5ODUyNzMsImV4cCI6MTYzMTE5NDg3M30.XnwP2w8HYgNw7WtHh0tP8haV9jofgQ_UQ9xJOsb01C4",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFjZjcwZDJkNTI2MjAwMTViNmRjOTkiLCJpYXQiOjE2Mjk5ODUyNzMsImV4cCI6MTYzMTE5NDg3M30.XnwP2w8HYgNw7WtHh0tP8haV9jofgQ_UQ9xJOsb01C4",
         },
       }
     );
 
     if (response.ok) {
-      this.setState({ success: true })
-      setTimeout(this.alert, 2000)
-      setTimeout(this.reload, 3000)
+      this.setState({ success: true });
+      setTimeout(this.alert, 2000);
+      setTimeout(this.reload, 3000);
     }
-  }
-//   alert
-  alert = ()=>{
-      this.setState({success: false})
-  }
-//   reload
-reload = async ()=> {
+  };
+  //   alert
+  alert = () => {
+    this.setState({ success: false });
+  };
+  //   reload
+  reload = async () => {
     try {
-        const response = await fetch(
-          "https://striveschool-api.herokuapp.com/api/comments/" +
-            this.state.asin,
-          {
-            method: "GET",
-            headers: {
-              Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFjZjcwZDJkNTI2MjAwMTViNmRjOTkiLCJpYXQiOjE2Mjk5ODUyNzMsImV4cCI6MTYzMTE5NDg3M30.XnwP2w8HYgNw7WtHh0tP8haV9jofgQ_UQ9xJOsb01C4",
-            },
-          }
-        );
-        const data = await response.json();
-        this.setState({ comments: data, loading: false });
-        console.log(this.state.comments);
-      } catch (e) {
-        console.log(e);
-      }
-}
+      const response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/comments/" +
+          this.state.asin,
+        {
+          method: "GET",
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFjZjcwZDJkNTI2MjAwMTViNmRjOTkiLCJpYXQiOjE2Mjk5ODUyNzMsImV4cCI6MTYzMTE5NDg3M30.XnwP2w8HYgNw7WtHh0tP8haV9jofgQ_UQ9xJOsb01C4",
+          },
+        }
+      );
+      const data = await response.json();
+      this.setState({ comments: data, loading: false });
+      console.log(this.state.comments);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   render() {
     return (

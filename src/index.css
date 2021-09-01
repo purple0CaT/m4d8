@@ -8,13 +8,12 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--home-bg-color) !important;
-  overflow-x: hidden;
 }
 
 code {
@@ -118,5 +117,5 @@ a {
 /* Break */
 
 .break {
-  padding-top: 100px;
+  padding-top: 3rem;
 }
