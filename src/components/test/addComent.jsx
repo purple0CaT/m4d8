@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 const AddComent = ({ asin, bookName, loadComments }) => {
   // STATES
   const [CommentSend, setCommentSend] = useState({
-    author: "",
     comment: "",
+    author: "",
     rate: 1,
     elementId: asin,
   });
@@ -21,19 +21,19 @@ const AddComent = ({ asin, bookName, loadComments }) => {
   const comentInput = (e, comentNam) => {
     setCommentSend({
       ...CommentSend,
-      [comentNam]: e.target.value,
+      [comentNam]: e.target.value
     });
   };
-  // // Sending alerts
-  // const success = () => {
-  //   setState({ ...State, loadSend: !State.loadSend });
-  // };
-  // const sendSuccess = () => {
-  //   setState({ ...State, sendSuccess: !State.sendSuccess });
-  // };
-  // const sendingAlert = () => {
-  //   setState({ ...State, sendSuccess: !State.sendSuccess });
-  // };
+  // Sending alerts
+  const success = () => {
+    setState({ ...State, loadSend: !State.loadSend });
+  };
+  const sendSuccess = () => {
+    setState({ ...State, sendSuccess: !State.sendSuccess });
+  };
+  const sendingAlert = () => {
+    setState({ ...State, sendSuccess: !State.sendSuccess });
+  };
   // load Send alerts
   const loadAlert = () => {
     setState({ ...State, loadSend: !State.loadSend });
@@ -91,7 +91,7 @@ const AddComent = ({ asin, bookName, loadComments }) => {
       {
         <form className="text-white" onSubmit={sendComment} key={asin + CommentSend.author}>
           <Form.Group>
-            <Form.Label>Comment</Form.Label>
+            <Form.Label>Author</Form.Label>
             <Form.Control
               type="text"
               placeholder="...author"
@@ -99,7 +99,7 @@ const AddComent = ({ asin, bookName, loadComments }) => {
               onChange={(e) => {
                 comentInput(e, "author");
               }}
-              required
+              
             />
           </Form.Group>
           <Form.Group>
