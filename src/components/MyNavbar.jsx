@@ -8,8 +8,7 @@ import {
 import Netflix from "../assets/Netflix.svg";
 import { BsBellFill } from "react-icons/bs";
 import React from "react";
-import Gallerie from "./Gallerie";
-import GallerieRow from "./GallerieRow";
+import { Link } from "react-router-dom";
 
 class MyNavbar extends React.Component {
   state = {
@@ -30,17 +29,17 @@ class MyNavbar extends React.Component {
     return (
       <>
         <Navbar className="Navbar" variant="dark" collapseOnSelect expand="lg">
-          <Navbar.Brand href="#home">
+          <Link className='nav-link' to="/">
             <img src={Netflix} alt="logo" className="Logo" />
-          </Navbar.Brand>
+          </Link>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav>
-              <Nav.Link href="App.js">Home</Nav.Link>
-              <Nav.Link href="#">TV Shows</Nav.Link>
-              <Nav.Link href="#">Movies</Nav.Link>
-              <Nav.Link href="#">Recently Added</Nav.Link>
-              <Nav.Link href="#">My List</Nav.Link>
+              <Link className='nav-link' to="/">Home</Link>
+              <Link className='nav-link' to="/">TV Shows</Link>
+              <Link className='nav-link' to="/">Movies</Link>
+              <Link className='nav-link' to="/">Recently Added</Link>
+              <Link className='nav-link' to="/">My List</Link>
             </Nav>
             <Nav className="ml-auto pr-3">
               <FormControl

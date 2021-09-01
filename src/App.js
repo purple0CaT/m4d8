@@ -4,17 +4,35 @@ import MyNavbar from "./components/MyNavbar";
 import Gallerie from "./components/Gallerie";
 import MyFooter from "./components/MyFooter";
 import { useState } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import CommentArea from "./components/test/CommentArea";
+import Test from "./components/test";
+import Details from "./components/test/Details";
 
-function App() {
+const App = () => {
   const [State, setState] = useState(null);
-  
+  const [linkName, setlinkName] = useState(null);
+
   return (
-    <div className="body">
-      <MyNavbar searchValue={(e) => setState(e )} />
-      <Gallerie searchVal={State} />
+    <Router>
+      <MyNavbar searchValue={(e) => setState(e)} />
+      <Route
+        path="/"
+        exact
+        render={(routerProps) => (
+          <Gallerie {...routerProps} searchVal={State} />
+        )}
+      />
+      <Route
+        path="/details/:movieId"
+        
+        component={Details}
+      />
+
+      <Route path="/tvshows" exact component={Gallerie} />
       <MyFooter />
-    </div>
+    </Router>
   );
-}
+};
 
 export default App;

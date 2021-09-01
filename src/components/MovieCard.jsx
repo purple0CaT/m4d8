@@ -1,5 +1,5 @@
 import React from "react";
-import Comments from "./Comments";
+import { Link } from "react-router-dom";
 // import { Col,Card,Button } from "react-bootstrap";
 class MovieCard extends React.Component {
   state = {
@@ -17,7 +17,7 @@ class MovieCard extends React.Component {
   render() {
     return (
       <>
-        <a
+        <Link to={'/details/'+this.props.movieId}
           className="col-2 my-3"
           key={this.props.movieId}
           value={this.props.movieId}
@@ -28,16 +28,8 @@ class MovieCard extends React.Component {
           <div className="movieCard h-100">
             <img className="w-100" src={this.props.img} />
           </div>
-        </a>
-        {this.state.showCom ? (
-          <Comments
-            parentCallback={this.handleCallback}
-            showit={this.state.showCom}
-            movId={this.props.movieId}
-          />
-        ) : (
-          <></>
-        )}
+        </Link>
+
       </>
     );
   }
