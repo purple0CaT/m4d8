@@ -29,7 +29,7 @@ const App = () => {
         component={Details}
       />
 
-      <Route path="/tvshows" exact component={Gallerie} />
+      <Route path="/tvShows" exact component={Gallerie} />
       <MyFooter />
     </Router>
   );

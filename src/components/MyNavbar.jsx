@@ -36,7 +36,7 @@ class MyNavbar extends React.Component {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav>
               <Link className='nav-link' to="/">Home</Link>
-              <Link className='nav-link' to="/">TV Shows</Link>
+              <Link className='nav-link' to="/tvShows">TV Shows</Link>
               <Link className='nav-link' to="/">Movies</Link>
               <Link className='nav-link' to="/">Recently Added</Link>
               <Link className='nav-link' to="/">My List</Link>

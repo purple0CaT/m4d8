@@ -24,16 +24,16 @@ const AddComent = ({ asin, bookName, loadComments }) => {
       [comentNam]: e.target.value,
     });
   };
-  // Sending alerts
-  const success = () => {
-    setState({ ...State, loadSend: !State.loadSend });
-  };
-  const sendSuccess = () => {
-    setState({ ...State, sendSuccess: !State.sendSuccess });
-  };
-  const sendingAlert = () => {
-    setState({ ...State, sendSuccess: !State.sendSuccess });
-  };
+  // // Sending alerts
+  // const success = () => {
+  //   setState({ ...State, loadSend: !State.loadSend });
+  // };
+  // const sendSuccess = () => {
+  //   setState({ ...State, sendSuccess: !State.sendSuccess });
+  // };
+  // const sendingAlert = () => {
+  //   setState({ ...State, sendSuccess: !State.sendSuccess });
+  // };
   // load Send alerts
   const loadAlert = () => {
     setState({ ...State, loadSend: !State.loadSend });
@@ -91,10 +91,10 @@ const AddComent = ({ asin, bookName, loadComments }) => {
       {
         <form className="text-white" onSubmit={sendComment} key={asin + CommentSend.author}>
           <Form.Group>
-            <Form.Label>Your name?</Form.Label>
+            <Form.Label>Comment</Form.Label>
             <Form.Control
               type="text"
-              placeholder="...name"
+              placeholder="...author"
               value={CommentSend.author}
               onChange={(e) => {
                 comentInput(e, "author");
@@ -102,7 +102,6 @@ const AddComent = ({ asin, bookName, loadComments }) => {
               required
             />
           </Form.Group>
-
           <Form.Group>
             <Form.Label>Comment</Form.Label>
             <Form.Control
